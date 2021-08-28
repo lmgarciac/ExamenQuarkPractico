@@ -46,6 +46,7 @@ namespace ExamenQuarkPractico
             this.sellerName.Name = "sellerName";
             this.sellerName.Size = new System.Drawing.Size(100, 20);
             this.sellerName.TabIndex = 0;
+            this.sellerName.Text = "Luis";
             this.sellerName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
@@ -72,6 +73,7 @@ namespace ExamenQuarkPractico
             this.sellerSurname.Name = "sellerSurname";
             this.sellerSurname.Size = new System.Drawing.Size(100, 20);
             this.sellerSurname.TabIndex = 3;
+            this.sellerSurname.Text = "Garcia";
             // 
             // sellerCode
             // 
@@ -79,6 +81,7 @@ namespace ExamenQuarkPractico
             this.sellerCode.Name = "sellerCode";
             this.sellerCode.Size = new System.Drawing.Size(100, 20);
             this.sellerCode.TabIndex = 4;
+            this.sellerCode.Text = "1234";
             this.sellerCode.TextChanged += new System.EventHandler(this.sellerCode_TextChanged);
             // 
             // label3

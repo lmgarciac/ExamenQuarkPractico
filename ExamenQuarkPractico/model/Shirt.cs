@@ -4,26 +4,30 @@ using System.Text;
 
 namespace ExamenQuarkPractico.model
 {
-    class Shirt : Clothes, ICotizable
+    public class Shirt : Clothes, ICotizable
     {
         private NeckType _neckType;
         private SleeveType _sleeveType;
+        public NeckType NeckType { get => _neckType; private set => _neckType = value; }
+        public SleeveType SleeveType { get => _sleeveType; private set => _sleeveType = value; }
+
 
         public Shirt(NeckType neckType, SleeveType sleeveType, ClothesQuality quality, float unitPrice)
         {
-            _neckType = neckType;
-            _sleeveType = sleeveType;
-            _quality = quality;
-            _unitPrice = unitPrice;
+            NeckType = neckType;
+            SleeveType = sleeveType;
+            Quality = quality;
+            UnitPrice = unitPrice;
         }
+
 
         public override float Price(float pricing = 0f)
         {
-            pricing = _unitPrice;
+            pricing = UnitPrice;
 
-            if (_sleeveType == SleeveType.shortSleeve)
+            if (SleeveType == SleeveType.shortSleeve)
                 pricing *= 0.9f;
-            if (_neckType == NeckType.maoNeck)
+            if (NeckType == NeckType.maoNeck)
                 pricing *= 1.03f;
 
             pricing = base.Price(pricing);

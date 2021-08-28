@@ -4,23 +4,25 @@ using System.Text;
 
 namespace ExamenQuarkPractico.model
 {
-    class Pants : Clothes, ICotizable
+    public class Pants : Clothes, ICotizable 
     {
         private PantsFitType _type;
+
+        public PantsFitType Type { get => _type; private set => _type = value; }
 
         public Pants(PantsFitType type, ClothesQuality quality, float unitPrice)
         {
             _type = type;
-            _quality = quality;
-            _unitPrice = unitPrice;
+            Quality = quality;
+            UnitPrice = unitPrice;
         }
 
         public override float Price(float pricing = 0f)
         {
-            pricing = _unitPrice;
+            pricing = UnitPrice;
 
             if (_type == PantsFitType.skinnyFit)
-                _unitPrice *= 0.88f;
+                UnitPrice *= 0.88f;
 
             pricing = base.Price(pricing);
 

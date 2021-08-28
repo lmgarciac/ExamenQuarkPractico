@@ -7,7 +7,7 @@ using ExamenQuarkPractico.model;
 
 namespace ExamenQuarkPractico.controller
 {
-    class PriceController
+    class PricingController
     {
         public float CalculatePrice(ClothesType clothesType, ClothesQuality clothesQuality, NeckType neckType, SleeveType sleeveType, PantsFitType pantsFitType, float unitPrice)
         {

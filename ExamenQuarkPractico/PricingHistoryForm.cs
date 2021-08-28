@@ -21,11 +21,15 @@ namespace ExamenQuarkPractico
 
         private void PrintPricings(List<Pricing> pricings)
         {
-            pricingsLabel.Text = "";
-
             foreach (var pricing in pricings)
             {
-                pricingsLabel.Text += $"\n {pricing.CurrentPricing}";
+                pricingID.Text += $"\n{pricing.Id}";
+                pricingDate.Text += $"\n{pricing.PricingDate}";
+                pricingSeller.Text += $"\n{pricing.SellerId}";
+                string clothe = pricing.Clothe == ClothesType.shirt ? "Camisa" : "Pantalon";
+                pricingClothe.Text += $"\n{clothe}";
+                pricingQty.Text += $"\n{pricing.Quantity}";
+                histPrice.Text += $"\n${pricing.CurrentPricing}";
             }
         }
 

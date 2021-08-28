@@ -8,10 +8,13 @@ namespace ExamenQuarkPractico.model
     {
         private static string name = "Quark Academy Clothes Shop";
         private static string address = "742 Evergreen Terrace";
-        private static List<ClothesType> clothesForSale = new List<ClothesType> { ClothesType.pants, ClothesType.shirt };
+        private static List<ClothesType> _clothesForSale = new List<ClothesType> { ClothesType.pants, ClothesType.shirt };
 
         public static string Name { get => name;}
         public static string Address { get => address;}
-        public static List<ClothesType> ClothesForSale { get => clothesForSale;}
+        public static List<ClothesType> ClothesForSale { get => _clothesForSale;}
+
+
+
     }
 }

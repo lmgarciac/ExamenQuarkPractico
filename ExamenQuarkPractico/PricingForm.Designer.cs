@@ -45,8 +45,6 @@ namespace ExamenQuarkPractico
             this.premiumQuality = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbUnitPrice = new System.Windows.Forms.TextBox();
-            this.tbQuantity = new System.Windows.Forms.TextBox();
             this.cotizar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.finalPrice = new System.Windows.Forms.Label();
@@ -63,6 +61,8 @@ namespace ExamenQuarkPractico
             this.label18 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.tbQuantity = new System.Windows.Forms.TextBox();
+            this.tbUnitPrice = new System.Windows.Forms.TextBox();
             this.containerClothesQuality.SuspendLayout();
             this.containerClothesType.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -152,6 +152,7 @@ namespace ExamenQuarkPractico
             this.shortSleeve.TabIndex = 7;
             this.shortSleeve.Text = "Manga Corta";
             this.shortSleeve.UseVisualStyleBackColor = true;
+            this.shortSleeve.CheckedChanged += new System.EventHandler(this.shortSleeve_CheckedChanged);
             // 
             // maoNeck
             // 
@@ -162,6 +163,7 @@ namespace ExamenQuarkPractico
             this.maoNeck.TabIndex = 8;
             this.maoNeck.Text = "Cuello Mao";
             this.maoNeck.UseVisualStyleBackColor = true;
+            this.maoNeck.CheckedChanged += new System.EventHandler(this.maoNeck_CheckedChanged);
             // 
             // skinnyFit
             // 
@@ -173,6 +175,7 @@ namespace ExamenQuarkPractico
             this.skinnyFit.TabIndex = 9;
             this.skinnyFit.Text = "Chupin";
             this.skinnyFit.UseVisualStyleBackColor = true;
+            this.skinnyFit.CheckedChanged += new System.EventHandler(this.skinnyFit_CheckedChanged);
             // 
             // label5
             // 
@@ -197,28 +200,30 @@ namespace ExamenQuarkPractico
             // 
             this.standardQuality.AutoSize = true;
             this.standardQuality.Checked = true;
-            this.standardQuality.Location = new System.Drawing.Point(24, 39);
+            this.standardQuality.Location = new System.Drawing.Point(24, 41);
             this.standardQuality.Name = "standardQuality";
             this.standardQuality.Size = new System.Drawing.Size(68, 17);
             this.standardQuality.TabIndex = 12;
             this.standardQuality.TabStop = true;
             this.standardQuality.Text = "Standard";
             this.standardQuality.UseVisualStyleBackColor = true;
+            this.standardQuality.CheckedChanged += new System.EventHandler(this.standardQuality_CheckedChanged);
             // 
             // premiumQuality
             // 
             this.premiumQuality.AutoSize = true;
-            this.premiumQuality.Location = new System.Drawing.Point(112, 39);
+            this.premiumQuality.Location = new System.Drawing.Point(116, 39);
             this.premiumQuality.Name = "premiumQuality";
             this.premiumQuality.Size = new System.Drawing.Size(65, 17);
             this.premiumQuality.TabIndex = 13;
             this.premiumQuality.Text = "Premium";
             this.premiumQuality.UseVisualStyleBackColor = true;
+            this.premiumQuality.CheckedChanged += new System.EventHandler(this.premiumQuality_CheckedChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 33);
+            this.label8.Location = new System.Drawing.Point(20, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(13, 13);
             this.label8.TabIndex = 15;
@@ -227,25 +232,11 @@ namespace ExamenQuarkPractico
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(101, 33);
+            this.label9.Location = new System.Drawing.Point(101, 39);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Cantidad";
-            // 
-            // tbUnitPrice
-            // 
-            this.tbUnitPrice.Location = new System.Drawing.Point(39, 30);
-            this.tbUnitPrice.Name = "tbUnitPrice";
-            this.tbUnitPrice.Size = new System.Drawing.Size(42, 20);
-            this.tbUnitPrice.TabIndex = 17;
-            // 
-            // tbQuantity
-            // 
-            this.tbQuantity.Location = new System.Drawing.Point(156, 30);
-            this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(49, 20);
-            this.tbQuantity.TabIndex = 18;
             // 
             // cotizar
             // 
@@ -410,6 +401,22 @@ namespace ExamenQuarkPractico
             this.label19.TabIndex = 32;
             this.label19.Text = "COTIZADOR EXPRESS";
             // 
+            // tbQuantity
+            // 
+            this.tbQuantity.Location = new System.Drawing.Point(156, 36);
+            this.tbQuantity.Name = "tbQuantity";
+            this.tbQuantity.Size = new System.Drawing.Size(49, 20);
+            this.tbQuantity.TabIndex = 18;
+            this.tbQuantity.TextChanged += new System.EventHandler(this.tbQuantity_TextChanged);
+            // 
+            // tbUnitPrice
+            // 
+            this.tbUnitPrice.Location = new System.Drawing.Point(39, 36);
+            this.tbUnitPrice.Name = "tbUnitPrice";
+            this.tbUnitPrice.Size = new System.Drawing.Size(42, 20);
+            this.tbUnitPrice.TabIndex = 17;
+            this.tbUnitPrice.TextChanged += new System.EventHandler(this.tbUnitPrice_TextChanged_1);
+            // 
             // PricingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,8 +475,6 @@ namespace ExamenQuarkPractico
         private System.Windows.Forms.RadioButton premiumQuality;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbUnitPrice;
-        private System.Windows.Forms.TextBox tbQuantity;
         private System.Windows.Forms.Button cotizar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label finalPrice;
@@ -486,6 +491,8 @@ namespace ExamenQuarkPractico
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox tbQuantity;
+        private System.Windows.Forms.TextBox tbUnitPrice;
     }
 }
 

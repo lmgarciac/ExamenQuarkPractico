@@ -24,9 +24,9 @@ namespace ExamenQuarkPractico
             sellerCode.Text = $"{seller.Id}";
             shopName.Text = Shop.Name;
             shopAddress.Text = Shop.Address;
+            Clothes.GenerateInitialStock();          
 
-            int stockQty = 0;
-            Clothes.stock.TryGetValue(ClothesType.shirt, out stockQty);
+            int stockQty = Clothes.GetStock(ClothesType.shirt, ClothesQuality.standardQuality, SleeveType.none, NeckType.none);
             stockAvailable.Text = stockQty.ToString();
         }
 
@@ -53,7 +53,7 @@ namespace ExamenQuarkPractico
                 pantsFitType = skinnyFit.Checked ? PantsFitType.skinnyFit : PantsFitType.regularFit;
             }
 
-            PriceController priceController = new PriceController();
+            PricingController priceController = new PricingController();
 
             float.TryParse(tbUnitPrice.Text, out float unitPriceValue);
             int.TryParse(tbQuantity.Text, out int quantityNumeric);
@@ -73,6 +73,123 @@ namespace ExamenQuarkPractico
 
             _currentSeller.Pricings.Add(_currentPricing);
         }
+
+        private void shirt_CheckedChanged(object sender, EventArgs e)
+        {
+            skinnyFit.Enabled = false;
+            skinnyFit.Checked = false;
+            shortSleeve.Enabled = true;
+            maoNeck.Enabled = true;
+
+            RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
+
+            int stockQty = Clothes.GetStock(ClothesType.shirt, clothesQuality, SleeveType.none, NeckType.none);
+            stockAvailable.Text = stockQty.ToString();
+        }
+
+        private void pants_CheckedChanged(object sender, EventArgs e)
+        {
+            skinnyFit.Enabled = true;
+            shortSleeve.Enabled = false;
+            maoNeck.Enabled = false;
+            shortSleeve.Checked = false;
+            maoNeck.Checked = false;
+
+            RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
+
+            int stockQty = Clothes.GetStock(ClothesType.pants, clothesQuality, PantsFitType.none);
+            stockAvailable.Text = stockQty.ToString();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var pricingHistory = new PricingHistoryForm(_currentSeller.Pricings);
+            pricingHistory.ShowDialog();
+        }
+
+        private void shortSleeve_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
+
+            SleeveType sleeveType = SleeveType.longSleeve;
+            if (shortSleeve.Checked)
+                sleeveType = SleeveType.shortSleeve;
+            else
+                sleeveType = SleeveType.none;
+
+            NeckType neckType = NeckType.regularNeck;
+            if (maoNeck.Checked)
+                neckType = NeckType.maoNeck;
+            else
+                neckType = NeckType.none;
+
+            int stockQty = Clothes.GetStock(ClothesType.shirt, clothesQuality, sleeveType, neckType);
+            stockAvailable.Text = stockQty.ToString();
+        }
+
+        private void maoNeck_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
+
+            NeckType neckType = NeckType.regularNeck;
+            if (maoNeck.Checked)
+                neckType = NeckType.maoNeck;
+            else
+                neckType = NeckType.none;
+
+            SleeveType sleeveType = SleeveType.longSleeve;
+            if (shortSleeve.Checked)
+                sleeveType = SleeveType.shortSleeve;
+            else
+                sleeveType = SleeveType.none;
+
+            int stockQty = Clothes.GetStock(ClothesType.shirt, clothesQuality, sleeveType, neckType);
+            stockAvailable.Text = stockQty.ToString();
+        }
+
+        private void tbUnitPrice_TextChanged_1(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbUnitPrice.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solo números", "Error");
+                tbUnitPrice.Text = tbUnitPrice.Text.Remove(tbUnitPrice.Text.Length - 1);
+            }
+        }
+
+        private void tbQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(tbQuantity.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solo números", "Error");
+                tbQuantity.Text = tbQuantity.Text.Remove(tbQuantity.Text.Length - 1);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void skinnyFit_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void standardQuality_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void premiumQuality_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void label13_Click(object sender, EventArgs e)
         {
@@ -104,32 +221,5 @@ namespace ExamenQuarkPractico
 
         }
 
-        private void shirt_CheckedChanged(object sender, EventArgs e)
-        {
-            skinnyFit.Enabled = false;
-            shortSleeve.Enabled = true;
-            maoNeck.Enabled = true;
-
-            int stockQty = 0;
-            Clothes.stock.TryGetValue(ClothesType.shirt, out stockQty);
-            stockAvailable.Text = stockQty.ToString();
-        }
-
-        private void pants_CheckedChanged(object sender, EventArgs e)
-        {
-            skinnyFit.Enabled = true;
-            shortSleeve.Enabled = false;
-            maoNeck.Enabled = false;
-
-            int stockQty = 0;
-            Clothes.stock.TryGetValue(ClothesType.pants, out stockQty);
-            stockAvailable.Text = stockQty.ToString();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var pricingHistory = new PricingHistoryForm(_currentSeller.Pricings);
-            pricingHistory.ShowDialog();
-        }
     }
 }

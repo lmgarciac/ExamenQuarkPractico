@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controller\PriceController.cs" />
+    <Compile Include="controller\PricingController.cs" />
+    <Compile Include="model\IPrintable.cs" />
+    <Compile Include="model\IStockeable.cs" />
     <Compile Include="PricingHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
