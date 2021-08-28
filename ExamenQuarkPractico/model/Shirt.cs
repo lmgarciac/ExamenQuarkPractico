@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ExamenQuarkPractico.Enums;
 
 namespace ExamenQuarkPractico.model
 {
-    public class Shirt : Clothes, ICotizable
+    public class Shirt : Clothes, IPriceable
     {
         private NeckType _neckType;
         private SleeveType _sleeveType;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExamenQuarkPractico.model
 {
-    interface ICotizable
+    interface IPriceable
     {
         float Price(float cotizacion);
     }

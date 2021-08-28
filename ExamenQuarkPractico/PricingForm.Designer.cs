@@ -52,17 +52,16 @@ namespace ExamenQuarkPractico
             this.containerClothesType = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbQuantity = new System.Windows.Forms.TextBox();
+            this.tbUnitPrice = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.tbQuantity = new System.Windows.Forms.TextBox();
-            this.tbUnitPrice = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.containerClothesQuality.SuspendLayout();
             this.containerClothesType.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -185,14 +184,15 @@ namespace ExamenQuarkPractico
             this.label5.Size = new System.Drawing.Size(158, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Unidades de Stock Disponibles:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // stockAvailable
             // 
             this.stockAvailable.AutoSize = true;
-            this.stockAvailable.Location = new System.Drawing.Point(199, 16);
+            this.stockAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockAvailable.ForeColor = System.Drawing.Color.Green;
+            this.stockAvailable.Location = new System.Drawing.Point(193, 16);
             this.stockAvailable.Name = "stockAvailable";
-            this.stockAvailable.Size = new System.Drawing.Size(13, 13);
+            this.stockAvailable.Size = new System.Drawing.Size(14, 13);
             this.stockAvailable.TabIndex = 11;
             this.stockAvailable.Text = "0";
             // 
@@ -207,7 +207,6 @@ namespace ExamenQuarkPractico
             this.standardQuality.TabStop = true;
             this.standardQuality.Text = "Standard";
             this.standardQuality.UseVisualStyleBackColor = true;
-            this.standardQuality.CheckedChanged += new System.EventHandler(this.standardQuality_CheckedChanged);
             // 
             // premiumQuality
             // 
@@ -218,7 +217,6 @@ namespace ExamenQuarkPractico
             this.premiumQuality.TabIndex = 13;
             this.premiumQuality.Text = "Premium";
             this.premiumQuality.UseVisualStyleBackColor = true;
-            this.premiumQuality.CheckedChanged += new System.EventHandler(this.premiumQuality_CheckedChanged);
             // 
             // label8
             // 
@@ -280,7 +278,6 @@ namespace ExamenQuarkPractico
             this.containerClothesQuality.TabIndex = 22;
             this.containerClothesQuality.TabStop = false;
             this.containerClothesQuality.Text = "Calidad de Prenda";
-            this.containerClothesQuality.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // containerClothesType
             // 
@@ -296,7 +293,6 @@ namespace ExamenQuarkPractico
             this.containerClothesType.TabIndex = 23;
             this.containerClothesType.TabStop = false;
             this.containerClothesType.Text = "Prenda";
-            this.containerClothesType.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label14
             // 
@@ -309,31 +305,12 @@ namespace ExamenQuarkPractico
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.stockAvailable);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(43, 291);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(322, 44);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(191, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "____";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(283, 537);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(187, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "______________________________";
             // 
             // groupBox4
             // 
@@ -348,6 +325,22 @@ namespace ExamenQuarkPractico
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Precio Unitario y Cantidad";
             // 
+            // tbQuantity
+            // 
+            this.tbQuantity.Location = new System.Drawing.Point(156, 36);
+            this.tbQuantity.Name = "tbQuantity";
+            this.tbQuantity.Size = new System.Drawing.Size(49, 20);
+            this.tbQuantity.TabIndex = 18;
+            this.tbQuantity.TextChanged += new System.EventHandler(this.tbQuantity_TextChanged);
+            // 
+            // tbUnitPrice
+            // 
+            this.tbUnitPrice.Location = new System.Drawing.Point(39, 36);
+            this.tbUnitPrice.Name = "tbUnitPrice";
+            this.tbUnitPrice.Size = new System.Drawing.Size(42, 20);
+            this.tbUnitPrice.TabIndex = 17;
+            this.tbUnitPrice.TextChanged += new System.EventHandler(this.tbUnitPrice_TextChanged_1);
+            // 
             // label15
             // 
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -355,7 +348,6 @@ namespace ExamenQuarkPractico
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(550, 2);
             this.label15.TabIndex = 11;
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label16
             // 
@@ -401,21 +393,14 @@ namespace ExamenQuarkPractico
             this.label19.TabIndex = 32;
             this.label19.Text = "COTIZADOR EXPRESS";
             // 
-            // tbQuantity
+            // label12
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(156, 36);
-            this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(49, 20);
-            this.tbQuantity.TabIndex = 18;
-            this.tbQuantity.TextChanged += new System.EventHandler(this.tbQuantity_TextChanged);
-            // 
-            // tbUnitPrice
-            // 
-            this.tbUnitPrice.Location = new System.Drawing.Point(39, 36);
-            this.tbUnitPrice.Name = "tbUnitPrice";
-            this.tbUnitPrice.Size = new System.Drawing.Size(42, 20);
-            this.tbUnitPrice.TabIndex = 17;
-            this.tbUnitPrice.TextChanged += new System.EventHandler(this.tbUnitPrice_TextChanged_1);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(283, 537);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(187, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "______________________________";
             // 
             // PricingForm
             // 
@@ -443,7 +428,6 @@ namespace ExamenQuarkPractico
             this.Controls.Add(this.shopName);
             this.Name = "PricingForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.containerClothesQuality.ResumeLayout(false);
             this.containerClothesQuality.PerformLayout();
             this.containerClothesType.ResumeLayout(false);
@@ -481,10 +465,8 @@ namespace ExamenQuarkPractico
         private System.Windows.Forms.GroupBox containerClothesQuality;
         private System.Windows.Forms.GroupBox containerClothesType;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -493,6 +475,7 @@ namespace ExamenQuarkPractico
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tbQuantity;
         private System.Windows.Forms.TextBox tbUnitPrice;
+        private System.Windows.Forms.Label label12;
     }
 }
 

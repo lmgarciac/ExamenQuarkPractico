@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ExamenQuarkPractico.Enums;
 
 namespace ExamenQuarkPractico.model
 {
@@ -13,8 +14,5 @@ namespace ExamenQuarkPractico.model
         public static string Name { get => name;}
         public static string Address { get => address;}
         public static List<ClothesType> ClothesForSale { get => _clothesForSale;}
-
-
-
     }
 }

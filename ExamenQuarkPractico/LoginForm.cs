@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ExamenQuarkPractico.model;
 using ExamenQuarkPractico.controller;
 
 namespace ExamenQuarkPractico
 {
     public partial class LoginForm : Form
     {
-        LoginController loginController = new LoginController();
+        LoginController _loginController = new LoginController();
 
         public LoginForm()
         {
@@ -23,7 +22,7 @@ namespace ExamenQuarkPractico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PricingForm pricing = new PricingForm(loginController.Login(sellerName.Text, sellerSurname.Text, sellerCode.Text));
+            PricingForm pricing = new PricingForm(_loginController.Login(sellerName.Text, sellerSurname.Text, sellerCode.Text));
             pricing.Show();
             this.Hide();
         }

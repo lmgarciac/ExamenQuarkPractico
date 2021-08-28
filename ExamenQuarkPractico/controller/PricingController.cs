@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamenQuarkPractico.model;
-using ExamenQuarkPractico.controller;
-
+using ExamenQuarkPractico.Enums;
 
 namespace ExamenQuarkPractico.controller
 {
     public class PricingController
     {
         private Seller _currentSeller;
-        public PricingController(Seller currentSeller)
+        public PricingController(string sellerName, string sellerSurname, string sellerCode)
         {
             GenerateInitialStock();
-            CurrentSeller = currentSeller;
+            CurrentSeller = new Seller(sellerName, sellerSurname, sellerCode);
         }
 
         public Seller CurrentSeller { get => _currentSeller; set => _currentSeller = value; }
@@ -62,6 +61,16 @@ namespace ExamenQuarkPractico.controller
         public int GetStock(ClothesType clothesType, ClothesQuality clothesQuality = ClothesQuality.none, PantsFitType pantsFitType = PantsFitType.none)
         {
             return Clothes.GetStock(clothesType, clothesQuality, pantsFitType);
+        }
+
+        public string GetShopName()
+        {
+            return Shop.Name;
+        }
+
+        public string GetShopAddress()
+        {
+            return Shop.Address;
         }
     }
 }

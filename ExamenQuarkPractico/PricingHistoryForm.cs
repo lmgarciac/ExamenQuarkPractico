@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamenQuarkPractico.model;
+using ExamenQuarkPractico.controller;
+using ExamenQuarkPractico.Enums;
 
 namespace ExamenQuarkPractico
 {
@@ -31,11 +33,6 @@ namespace ExamenQuarkPractico
                 pricingQty.Text += $"\n{pricing.Quantity}";
                 histPrice.Text += $"\n${pricing.CurrentPricing}";
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void closeButton_Click(object sender, EventArgs e)

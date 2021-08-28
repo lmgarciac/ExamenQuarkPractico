@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using ExamenQuarkPractico.Enums;
 
 namespace ExamenQuarkPractico.model
 {
-    public abstract class Clothes : ICotizable
+    public abstract class Clothes : IPriceable
     {
         protected ClothesQuality _quality;
         private float unitPrice;

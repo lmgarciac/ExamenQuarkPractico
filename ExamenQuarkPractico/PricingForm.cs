@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExamenQuarkPractico.controller;
-using ExamenQuarkPractico.model;
+using ExamenQuarkPractico.Enums;
 
 namespace ExamenQuarkPractico
 {
@@ -16,19 +16,19 @@ namespace ExamenQuarkPractico
     {
         PricingController _pricingController;
 
-        public PricingForm(Seller seller)
+        public PricingForm(PricingController pricingController)
         {
             InitializeComponent();
-            _pricingController = new PricingController(seller);
-            InitializeTextFields(seller);
+            _pricingController = pricingController;
+            InitializeTextFields();
         }
 
-        private void InitializeTextFields(Seller seller)
+        private void InitializeTextFields()
         {
-            sellerName.Text = $"{seller.Name} {seller.Surname}";
-            sellerCode.Text = $"{seller.Id}";
-            shopName.Text = Shop.Name;
-            shopAddress.Text = Shop.Address;
+            sellerName.Text = $"{_pricingController.CurrentSeller.Name} {_pricingController.CurrentSeller.Surname}";
+            sellerCode.Text = $"{_pricingController.CurrentSeller.Id}";
+            shopName.Text = _pricingController.GetShopName();
+            shopAddress.Text = _pricingController.GetShopAddress();
             stockAvailable.Text = _pricingController.GetStock(ClothesType.shirt, ClothesQuality.standardQuality, SleeveType.none, NeckType.none).ToString();
         }
 
@@ -98,12 +98,6 @@ namespace ExamenQuarkPractico
             stockAvailable.Text = stockQty.ToString();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var pricingHistory = new PricingHistoryForm(_pricingController.CurrentSeller.Pricings);
-            pricingHistory.ShowDialog();
-        }
-
         private void shortSleeve_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
@@ -146,6 +140,21 @@ namespace ExamenQuarkPractico
             stockAvailable.Text = stockQty.ToString();
         }
 
+        private void skinnyFit_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
+
+            PantsFitType pantsFitType = PantsFitType.regularFit;
+            if (skinnyFit.Checked)
+                pantsFitType = PantsFitType.skinnyFit;
+            else
+                pantsFitType = PantsFitType.none;
+
+            int stockQty = _pricingController.GetStock(ClothesType.pants, clothesQuality, pantsFitType);
+            stockAvailable.Text = stockQty.ToString();
+        }
+
         private void tbUnitPrice_TextChanged_1(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(tbUnitPrice.Text, "[^0-9]"))
@@ -164,56 +173,10 @@ namespace ExamenQuarkPractico
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-        }
-
-
-        private void skinnyFit_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void standardQuality_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void premiumQuality_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            var pricingHistory = new PricingHistoryForm(_pricingController.CurrentSeller.Pricings);
+            pricingHistory.ShowDialog();
         }
 
     }

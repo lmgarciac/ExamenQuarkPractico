@@ -8,6 +8,7 @@ namespace ExamenQuarkPractico.model
 {
     interface IPrintable
     {
-        void Print();
+        void Print(); 
+        //Not implemented, this would be implemented in every object that would need to be printed (princing history / single pricing / etc.)
     }
 }

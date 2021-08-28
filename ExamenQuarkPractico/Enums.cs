@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExamenQuarkPractico.model
+namespace ExamenQuarkPractico.Enums
 {
     public enum ClothesQuality
     {
