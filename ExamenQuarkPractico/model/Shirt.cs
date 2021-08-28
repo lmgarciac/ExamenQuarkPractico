@@ -12,7 +12,6 @@ namespace ExamenQuarkPractico.model
         public NeckType NeckType { get => _neckType; private set => _neckType = value; }
         public SleeveType SleeveType { get => _sleeveType; private set => _sleeveType = value; }
 
-
         public Shirt(NeckType neckType, SleeveType sleeveType, ClothesQuality quality, float unitPrice)
         {
             NeckType = neckType;
@@ -20,7 +19,6 @@ namespace ExamenQuarkPractico.model
             Quality = quality;
             UnitPrice = unitPrice;
         }
-
 
         public override float Price(float pricing = 0f)
         {

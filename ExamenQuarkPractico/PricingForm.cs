@@ -64,11 +64,23 @@ namespace ExamenQuarkPractico
             {
                 neckType = maoNeck.Checked ? NeckType.maoNeck : NeckType.regularNeck;
                 sleeveType = shortSleeve.Checked ? SleeveType.shortSleeve : SleeveType.longSleeve;
+
+                if (quantityNumeric > _pricingController.GetStock(clothesType, clothesQuality, sleeveType, neckType))
+                {
+                    MessageBox.Show("Stock Insuficiente", "Error");
+                    return;
+                }
             }
 
             if (clothesType == ClothesType.pants)
             {
                 pantsFitType = skinnyFit.Checked ? PantsFitType.skinnyFit : PantsFitType.regularFit;
+
+                if (quantityNumeric > _pricingController.GetStock(clothesType, clothesQuality, pantsFitType))
+                {
+                    MessageBox.Show("Stock Insuficiente", "Error");
+                    return;
+                }
             }
 
             float finalPriceNumeric = _pricingController.CalculatePrice(clothesType, clothesQuality, neckType, sleeveType, pantsFitType, unitPriceValue, quantityNumeric);

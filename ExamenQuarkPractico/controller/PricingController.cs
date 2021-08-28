@@ -15,6 +15,7 @@ namespace ExamenQuarkPractico.controller
         {
             GenerateInitialStock();
             CurrentSeller = new Seller(sellerName, sellerSurname, sellerCode);
+            Shop.Seller = CurrentSeller;
         }
 
         public Seller CurrentSeller { get => _currentSeller; set => _currentSeller = value; }
@@ -50,17 +51,17 @@ namespace ExamenQuarkPractico.controller
 
         public void GenerateInitialStock()
         {
-            Clothes.GenerateInitialStock();
+            Shop.GenerateInitialStock();
         }
 
         public int GetStock(ClothesType clothesType, ClothesQuality clothesQuality = ClothesQuality.none, SleeveType sleeveType = SleeveType.none, NeckType neckType = NeckType.none)
         {
-            return Clothes.GetStock(clothesType, clothesQuality, sleeveType, neckType);
+            return Shop.GetStock(clothesType, clothesQuality, sleeveType, neckType);
         }
 
         public int GetStock(ClothesType clothesType, ClothesQuality clothesQuality = ClothesQuality.none, PantsFitType pantsFitType = PantsFitType.none)
         {
-            return Clothes.GetStock(clothesType, clothesQuality, pantsFitType);
+            return Shop.GetStock(clothesType, clothesQuality, pantsFitType);
         }
 
         public string GetShopName()

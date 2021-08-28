@@ -13,14 +13,14 @@ namespace ExamenQuarkPractico.model
 
         public Seller(string name, string surname, string id)
         {
-            Name = name;
-            Surname = surname;
-            Id = id;
+            _name = name;
+            _surname = surname;
+            _id = id;
         }
 
-        public string Name { get => _name; set => _name = value; }
-        public string Surname { get => _surname; set => _surname = value; }
-        public string Id { get => _id; set => _id = value; }
-        public List<Pricing> Pricings { get => _pricings; set => _pricings = value; }
+        public string Name { get => _name;}
+        public string Surname { get => _surname;}
+        public string Id { get => _id;}
+        public List<Pricing> Pricings { get => _pricings;}
     }
 }
