@@ -14,20 +14,22 @@ namespace ExamenQuarkPractico
 {
     public partial class PricingForm : Form
     {
-        private Seller _currentSeller;
+        PricingController _pricingController;
 
         public PricingForm(Seller seller)
         {
             InitializeComponent();
-            _currentSeller = seller;
+            _pricingController = new PricingController(seller);
+            InitializeTextFields(seller);
+        }
+
+        private void InitializeTextFields(Seller seller)
+        {
             sellerName.Text = $"{seller.Name} {seller.Surname}";
             sellerCode.Text = $"{seller.Id}";
             shopName.Text = Shop.Name;
             shopAddress.Text = Shop.Address;
-            Clothes.GenerateInitialStock();          
-
-            int stockQty = Clothes.GetStock(ClothesType.shirt, ClothesQuality.standardQuality, SleeveType.none, NeckType.none);
-            stockAvailable.Text = stockQty.ToString();
+            stockAvailable.Text = _pricingController.GetStock(ClothesType.shirt, ClothesQuality.standardQuality, SleeveType.none, NeckType.none).ToString();
         }
 
         private void cotizar_Click(object sender, EventArgs e)
@@ -53,8 +55,6 @@ namespace ExamenQuarkPractico
                 pantsFitType = skinnyFit.Checked ? PantsFitType.skinnyFit : PantsFitType.regularFit;
             }
 
-            PricingController priceController = new PricingController();
-
             float.TryParse(tbUnitPrice.Text, out float unitPriceValue);
             int.TryParse(tbQuantity.Text, out int quantityNumeric);
 
@@ -64,14 +64,9 @@ namespace ExamenQuarkPractico
                 tbQuantity.Text = quantityNumeric.ToString();
             }
 
-            float finalPriceNumeric = priceController.CalculatePrice(clothesType, clothesQuality, neckType, sleeveType, pantsFitType, unitPriceValue) * quantityNumeric;
+            float finalPriceNumeric = _pricingController.CalculatePrice(clothesType, clothesQuality, neckType, sleeveType, pantsFitType, unitPriceValue, quantityNumeric);
 
             finalPrice.Text = finalPriceNumeric.ToString();
-
-            int pricingid = _currentSeller.Pricings.Count + 1;
-            Pricing _currentPricing = new Pricing(pricingid, DateTime.Now, _currentSeller.Id, clothesType, quantityNumeric, finalPriceNumeric);
-
-            _currentSeller.Pricings.Add(_currentPricing);
         }
 
         private void shirt_CheckedChanged(object sender, EventArgs e)
@@ -84,7 +79,7 @@ namespace ExamenQuarkPractico
             RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
 
-            int stockQty = Clothes.GetStock(ClothesType.shirt, clothesQuality, SleeveType.none, NeckType.none);
+            int stockQty = _pricingController.GetStock(ClothesType.shirt, clothesQuality, SleeveType.none, NeckType.none);
             stockAvailable.Text = stockQty.ToString();
         }
 
@@ -99,13 +94,13 @@ namespace ExamenQuarkPractico
             RadioButton clothesQualitySelection = containerClothesQuality.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             ClothesQuality clothesQuality = (ClothesQuality)Enum.Parse(typeof(ClothesQuality), clothesQualitySelection.Name, true);
 
-            int stockQty = Clothes.GetStock(ClothesType.pants, clothesQuality, PantsFitType.none);
+            int stockQty = _pricingController.GetStock(ClothesType.pants, clothesQuality, PantsFitType.none);
             stockAvailable.Text = stockQty.ToString();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var pricingHistory = new PricingHistoryForm(_currentSeller.Pricings);
+            var pricingHistory = new PricingHistoryForm(_pricingController.CurrentSeller.Pricings);
             pricingHistory.ShowDialog();
         }
 
@@ -126,7 +121,7 @@ namespace ExamenQuarkPractico
             else
                 neckType = NeckType.none;
 
-            int stockQty = Clothes.GetStock(ClothesType.shirt, clothesQuality, sleeveType, neckType);
+            int stockQty = _pricingController.GetStock(ClothesType.shirt, clothesQuality, sleeveType, neckType);
             stockAvailable.Text = stockQty.ToString();
         }
 
@@ -147,7 +142,7 @@ namespace ExamenQuarkPractico
             else
                 sleeveType = SleeveType.none;
 
-            int stockQty = Clothes.GetStock(ClothesType.shirt, clothesQuality, sleeveType, neckType);
+            int stockQty = _pricingController.GetStock(ClothesType.shirt, clothesQuality, sleeveType, neckType);
             stockAvailable.Text = stockQty.ToString();
         }
 

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\LoginController.cs" />
     <Compile Include="controller\PricingController.cs" />
     <Compile Include="model\IPrintable.cs" />
     <Compile Include="model\IStockeable.cs" />
@@ -69,7 +70,7 @@
     </Compile>
     <Compile Include="model\Shirt.cs" />
     <Compile Include="model\Pricing.cs" />
-    <Compile Include="model\Enums.cs" />
+    <Compile Include="controller\Enums.cs" />
     <Compile Include="model\ICotizable.cs" />
     <Compile Include="model\Pants.cs" />
     <Compile Include="model\Clothes.cs" />

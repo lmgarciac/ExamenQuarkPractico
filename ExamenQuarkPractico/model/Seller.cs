@@ -8,19 +8,19 @@ namespace ExamenQuarkPractico.model
     {
         private string _name;
         private string _surname;
-        private int _id;
+        private string _id;
         private List<Pricing> _pricings = new List<Pricing>();
 
-        public Seller(string nombre, string apellido, int codigo)
+        public Seller(string name, string surname, string id)
         {
-            Name = nombre;
-            Surname = apellido;
-            Id = codigo;
+            Name = name;
+            Surname = surname;
+            Id = id;
         }
 
         public string Name { get => _name; set => _name = value; }
         public string Surname { get => _surname; set => _surname = value; }
-        public int Id { get => _id; set => _id = value; }
+        public string Id { get => _id; set => _id = value; }
         public List<Pricing> Pricings { get => _pricings; set => _pricings = value; }
     }
 }
