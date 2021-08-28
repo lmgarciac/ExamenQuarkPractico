@@ -175,6 +175,7 @@ namespace ExamenQuarkPractico
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
             this.Name = "PricingHistoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
