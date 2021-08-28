@@ -427,7 +427,9 @@ namespace ExamenQuarkPractico
             this.Controls.Add(this.shopAddress);
             this.Controls.Add(this.shopName);
             this.Name = "PricingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PricingForm_FormClosed);
             this.containerClothesQuality.ResumeLayout(false);
             this.containerClothesQuality.PerformLayout();
             this.containerClothesType.ResumeLayout(false);

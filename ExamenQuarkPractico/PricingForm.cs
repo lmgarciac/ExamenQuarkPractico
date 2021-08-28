@@ -34,6 +34,22 @@ namespace ExamenQuarkPractico
 
         private void cotizar_Click(object sender, EventArgs e)
         {
+            float.TryParse(tbUnitPrice.Text, out float unitPriceValue);
+
+            if (unitPriceValue == 0)
+            {
+                MessageBox.Show("Ingrese un precio", "Error");
+                return;
+            }
+
+            int.TryParse(tbQuantity.Text, out int quantityNumeric);
+
+            if (quantityNumeric == 0)
+            {
+                quantityNumeric = 1;
+                tbQuantity.Text = quantityNumeric.ToString();
+            }
+
             RadioButton clothesTypeSelection = containerClothesType.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             ClothesType clothesType = (ClothesType)Enum.Parse(typeof(ClothesType), clothesTypeSelection.Name, true);
 
@@ -53,15 +69,6 @@ namespace ExamenQuarkPractico
             if (clothesType == ClothesType.pants)
             {
                 pantsFitType = skinnyFit.Checked ? PantsFitType.skinnyFit : PantsFitType.regularFit;
-            }
-
-            float.TryParse(tbUnitPrice.Text, out float unitPriceValue);
-            int.TryParse(tbQuantity.Text, out int quantityNumeric);
-
-            if (quantityNumeric == 0)
-            {
-                quantityNumeric = 1;
-                tbQuantity.Text = quantityNumeric.ToString();
             }
 
             float finalPriceNumeric = _pricingController.CalculatePrice(clothesType, clothesQuality, neckType, sleeveType, pantsFitType, unitPriceValue, quantityNumeric);
@@ -179,5 +186,9 @@ namespace ExamenQuarkPractico
             pricingHistory.ShowDialog();
         }
 
+        private void PricingForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

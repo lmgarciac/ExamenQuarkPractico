@@ -26,5 +26,10 @@ namespace ExamenQuarkPractico
             pricing.Show();
             this.Hide();
         }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

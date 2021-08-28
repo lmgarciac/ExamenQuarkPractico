@@ -137,7 +137,9 @@ namespace ExamenQuarkPractico
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sellerName);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
