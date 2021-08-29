@@ -9,14 +9,12 @@ namespace ExamenQuarkPractico.model
     {
         private static string _name = "Quark Academy Clothes Shop";
         private static string _address = "742 Evergreen Terrace";
-        private static List<ClothesType> _clothesForSale = new List<ClothesType> { ClothesType.pants, ClothesType.shirt };
         private static Seller _seller;
         private static List<Pants> _pantsStock = new List<Pants>();
         private static List<Shirt> _shirtsStock = new List<Shirt>();
 
         public static string Name { get => _name;}
         public static string Address { get => _address;}
-        public static List<ClothesType> ClothesForSale { get => _clothesForSale;}
         public static Seller Seller { get => _seller; set => _seller = value; }
 
         public static List<Pants> PantsStock { get => _pantsStock; set => _pantsStock = value; }
