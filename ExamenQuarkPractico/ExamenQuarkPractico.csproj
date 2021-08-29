@@ -64,7 +64,6 @@
     <Compile Include="controller\LoginController.cs" />
     <Compile Include="controller\PricingController.cs" />
     <Compile Include="model\IPrintable.cs" />
-    <Compile Include="model\IStockeable.cs" />
     <Compile Include="PricingHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
