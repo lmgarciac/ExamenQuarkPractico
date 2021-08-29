@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="ExamenQuarkPractico.exe" version="1.0.0.1" publicKeyToken="63538ed8346fe220" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="ExamenQuarkPractico" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="ExamenQuarkPractico.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opciones del manifiesto de Control de cuentas de usuario
+          Si quiere cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el
+          nodo requestedExecutionLevel por alguno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Si desea usar la virtualización de archivos y del Registro para la
+         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExamenQuarkPractico.exe" size="31640">
+      <assemblyIdentity name="ExamenQuarkPractico" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>huCSDssd4z6cAcsGEo4BiIw5uDee50VPByHUsa0ZwV4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ExamenQuarkPractico.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MSI\luism" issuerKeyHash="d7a2386b1b91633b9d40457a5951fcaa2963eeba" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>WKVyNjaK8kFvluhabhfkqmIkJyjTusvm4yB7ax9Y7Q8=</DigestValue></Reference></SignedInfo><SignatureValue>rCW6F/JYkzDfmdKFWg3POuShbIIXN9+kPrOMFo2sQoyjlrbZ6kRNlU0Luh3lCGnbX298zCD/7XiWI0cf81rVrxjb8KbVjbY+ynj5Pf1MWMFsKGvBF2Ye7AAR2R5iivKJtrICRmLdtAGHTYXFekcQeZwseSdcIFCLxXZWYS1Tx4I=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>sQKEDzLn4rgH3uo8hVoBd+sQwj5epjNtHlPP9aRVzSZQdy7LH/WiAbsx4He/Gjc/TOm3JAQWoulKY4MmRdW69gdFjdOaemUfDiRCd+Ri34yU2AGaghr8KmCF67pAPyGw7MrrLUS+dvTwmNn+oFCNNDHnBMhncFXM7+lMhPHzxNU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="0fed581f6b7b20e3e6cbbad328272462aae4176e5ae8966f41f28a363672a558" Description="" Url=""><as:assemblyIdentity name="ExamenQuarkPractico.exe" version="1.0.0.1" publicKeyToken="63538ed8346fe220" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MSI\luism</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>3bW2bXDr4rgT8I+eqhIEap6umrMLFlPAHMt0kObLnhA=</DigestValue></Reference></SignedInfo><SignatureValue>qIapx2nogidMeCmp58S7hwJKqMjsvPFzNaXEciqkXyVntywNZ1uC4gaer7rGuGcwV5lHYXKzV8A0LtaYgY4AY/dtKoEwRZt1fIQj+82xYSPuEySO82XHf0bB5hpavLwaj5alhUJOY2VFbU/69bvPDAZ4aPQGdvL0gmUV2Eqo7QE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>sQKEDzLn4rgH3uo8hVoBd+sQwj5epjNtHlPP9aRVzSZQdy7LH/WiAbsx4He/Gjc/TOm3JAQWoulKY4MmRdW69gdFjdOaemUfDiRCd+Ri34yU2AGaghr8KmCF67pAPyGw7MrrLUS+dvTwmNn+oFCNNDHnBMhncFXM7+lMhPHzxNU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBvTCCASagAwIBAgIQQDmLySMiyoVEcNw4GDM4ODANBgkqhkiG9w0BAQsFADAdMRswGQYDVQQDHhIATQBTAEkAXABsAHUAaQBzAG0wHhcNMjEwODI5MDAyMjI1WhcNMjIwODI5MDYyMjI1WjAdMRswGQYDVQQDHhIATQBTAEkAXABsAHUAaQBzAG0wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALEChA8y5+K4B97qPIVaAXfrEMI+XqYzbR5Tz/WkVc0mUHcuyx/1ogG7MeB3vxo3P0zptyQEFqLpSmODJkXVuvYHRY3TmnplHw4kQnfkYt+MlNgBmoIa/Cpgheu6QD8hsOzK6y1Evnb08JjZ/qBQjTQx5wTIZ3BVzO/pTITx88TVAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAON1grfgc1vTSQpTo42isseWzpZUTATkk/yxuxCLrKPCD7sXgUmTfIvImqs3uqSyJhcREIJES1AaZWL3eK2Ulj6UkKmI1XfGlENFHU4bTZPmYadn1Of6q6oBGTHa6GTRPjO7+ZEALDI302twgvCh8YQjG8Mr8xHmoWIRmioro+3I=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -23,7 +23,7 @@ namespace ExamenQuarkPractico.model
             pricing = UnitPrice;
 
             if (_type == PantsFitType.skinnyFit)
-                UnitPrice *= 0.88f;
+                pricing *= 0.88f;
 
             pricing = base.Price(pricing);
 
